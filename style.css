@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* 
+ * "Gilmore Girls" Autumn Aesthetic Palette
+ * Primary: #F8F5F0 (Light Cream)
+ * Secondary: #EAE3D9 (Soft Tan)
+ * Accent 1: #A0522D (Sienna - for buttons, highlights)
+ * Accent 2: #6D4C41 (Darker Brown - for text, navigation)
+ * Accent 3: #C28B6E (Muted Terracotta - for subtle accents)
+ * Text: #3A332C (Deep Brown)
+ * Border/Shadow: #D4C7B8 (Muted Beige)
+*/
+
+/* === General Body & Fonts === */
+body { /* Light Cream */
+    background-color: #F8F5F0;
+    background-image: linear-gradient(to bottom, #F8F5F0, #EAE3D9); /* Soft Tan */
+    background-attachment: fixed;
+    color: #3A332C; /* Deep Brown */
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Clean, friendly body font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* === Containers === */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    max-width: 1200px; /* Max width for main content */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Add some padding */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Lighter, more subtle shadow */
+    box-sizing: border-box;
+}
+
+/* Landing Page Container */
+.landing-container {
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px; /* Increased padding */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Sign-in Page Container */
+.signin-container {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 600px; /* Smaller max-width for sign-in */
+    margin: 0 auto; /* Center the container */
+    min-height: 100vh;
+}
+
+/* === Decorative Boxes for Landing/Sign-in === */
+.landing-box, .signin-box {
+    background-color: #FBF9F1;
+    padding: 2rem 3rem 3rem;
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    border-radius: 8px; /* Slightly less rounded */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Softer shadow */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.signin-box {
+    padding: 2.5rem 3.5rem;
+}
+
+.landing-box::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: repeating-linear-gradient(-45deg, #D37556, #D37556 2px, transparent 2px, transparent 6px);
+    z-index: -1; /* Keep behind */
+    border-radius: 12px; /* Match parent border-radius */
+    opacity: 0.2; /* Much more subtle */
+}
+
+/* === Typography === */
+.landing-title {
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 6rem; /* Slightly smaller for professionalism */
+    font-weight: 700; /* Keep bold for impact */
+    color: #6D4C41; /* Darker Brown */
+    text-shadow: none; /* Remove text shadow */
+    margin: 0;
+}
+
+.tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    color: #3A332C; /* Deep Brown */
+    letter-spacing: 0.2px; /* Subtle spacing */
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-family: 'Special Elite', monospace;
+    font-size: 8rem;
+    font-weight: 700;
+    color: #6D4C41;
+    text-shadow: none;
+    margin-bottom: 40px;
+}
+
+.cursive-heading {
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 3.5rem; /* More refined size */
+    font-weight: 700; /* Stronger for headings */
+    letter-spacing: 0.1px; /* Very subtle spacing */
+    margin-bottom: 2rem;
+    color: #A0522D; /* Sienna */
+}
+
+.subheading {
+    font-size: 1.5rem;
+    margin-top: -2rem;
+    margin-bottom: 3rem; /* Keep existing margin */
+    letter-spacing: 0.1px; /* Subtle spacing */
+    color: #3A332C; /* Deep Brown */
+}
+
+/* === Buttons & Inputs === */
+.start-button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #F8F5F0; /* Light Cream */
+    background-color: #A0522D; /* Sienna */
+    padding: 12px 28px; /* Standardized padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly less rounded */
+    cursor: pointer; /* Indicate clickable */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Lighter shadow */
+}
+
+.start-button:hover {
+    background-color: #9E6161; /* Faded Burgundy */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(74, 63, 53, 0.2);
+}
+
+.username-input {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.5rem;
+    padding: 12px 15px; /* Standardized padding */
+    width: 300px;
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    border-radius: 4px;
+    background-color: #F8F5F0; /* Light Cream */
+    color: #3A332C; /* Deep Brown */
+    margin-bottom: 2rem;
+    text-align: center;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); /* Subtle inner shadow */
+}
+
+.username-input::placeholder {
+    color: rgba(74, 63, 53, 0.4);
+}
+
+.username-input:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: #A0522D; /* Sienna on focus */
+    box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.2); /* Focus ring */
+}
+
+/* === Navigation Bar === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4%; /* Slightly less padding */
+    background-color: #6D4C41; /* Darker Brown */
+    border-bottom: 1px solid #5A4038; /* Thinner, darker border */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08); /* Lighter shadow */
+}
+
+.nav-brand {
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 1.8rem; /* More professional size */
+    color: #F8F5F0; /* Light Cream */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #EAE3D9; /* Soft Tan */
+    font-size: 1rem; /* Standardized font size */
+    padding: 10px 20px;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border-radius: 4px;
+    letter-spacing: 0.1px; /* Very subtle spacing */
+}
+
+.nav-links li a:hover {
+    color: #F8F5F0; /* Light Cream */
+    background-color: rgba(255,255,255,0.1); /* Subtle hover background */
+}
+
+.nav-links li a.active {
+    color: #F8F5F0; /* Light Cream */
+    font-weight: 600;
+}
+
+/* === Home Page Content === */
+.home-content {
+    text-align: center;
+    padding: 3rem 5%;
+    border: none; /* Remove border from main content area */
+    box-shadow: none; /* Remove shadow from main content area */
+}
+
+.movie-grid {
+    display: grid;
+    /* 3x2 grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem; /* Evenly distributes space between grid items */
+    margin-bottom: 3rem;
+    max-width: 1100px; /* Slightly narrower grid */
+    padding: 10px; /* Padding inside the grid for spacing */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movie-card {
+    position: relative;
+    aspect-ratio: 2 / 3; /* Enforces a uniform movie poster shape */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    cursor: pointer;
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* More pronounced hover shadow */
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(15%) contrast(95%) brightness(102%); /* More subtle vintage filter */
+    transition: filter 0.3s;
+} 
+
+.movie-card:hover img {
+    filter: grayscale(0%);
+}
+
+.movie-card .movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(6D, 4C, 41, 0.9), transparent); /* Darker Brown */
+    color: #FBF9F1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to bottom */
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s, background-color 0.4s;
+    text-align: left;
+    padding: 10px;
+}
+
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+.movie-overlay h3 {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 1.4rem; /* More professional size */
+    margin-bottom: 15px; /* Keep margin */
+    color: #F8F5F0; /* Light Cream */
+    align-self: flex-start; /* Align title to left */
+    padding: 0 10px; /* Padding for title */
+}
+
+.review-details {
+    padding: 0 15px 10px;
+    color: #EFEAE0;
+    align-self: stretch;
+}
+
+.star-rating {
+    font-size: 1.2rem;
+    color: #A0522D; /* Sienna */
+}
+
+.review-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* === Overlay Buttons on Hover === */
+.overlay-buttons {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; /* Distribute buttons */
+    gap: 8px; /* Smaller gap */
+}
+
+.overlay-buttons button {
+    font-family: 'Nunito Sans', sans-serif;
+    background: rgba(255, 255, 255, 0.9); /* White with transparency */
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    color: #3A332C; /* Deep Brown */
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    font-size: 0.85rem; /* Slightly smaller font */
+    font-weight: 600;
+}
+
+.overlay-buttons button:hover {
+    background: #A0522D; /* Sienna */
+    color: #F8F5F0; /* Light Cream */
+    border-color: #A0522D;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* === Pop-up Notification === */
+.popup {
+    position: fixed;
+    bottom: 20px; /* Closer to bottom */
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background-color: #6D4C41; /* Darker Brown */
+    color: #F8F5F0; /* Light Cream */
+    padding: 12px 20px; /* Smaller padding */
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* Smaller font size */
+    opacity: 0;
+    visibility: hidden;
+    border: none; /* No border */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Subtle shadow */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 2000;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -10px); /* Slide up slightly */
+}
+
+/* === Movie Detail Modal === */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Slightly less opaque */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #F8F5F0; /* Light Cream */
+    padding: 2rem;
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Softer shadow */
+    position: relative;
+}
+
+.modal-close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px; /* Slightly smaller */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-layout {
+    display: flex;
+    gap: 2rem;
+}
+
+.modal-cover {
+    flex: 1;
+    max-width: 33%;
+}
+
+.modal-cover img { /* Movie cover in modal */
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.modal-info {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    color: #3A332C; /* Deep Brown */
+}
+
+.modal-actions {
+    margin-top: auto; /* Pushes actions to the bottom */
+    padding-top: 1rem;
+    background-color: #EAE3D9; /* Soft Tan */
+    padding: 1.5rem;
+    margin: 1.5rem -2rem -2rem; /* Extend to edges of modal padding, adjusted for new padding */
+    border-radius: 0 0 8px 8px; /* Match modal content border-radius */
+    border-top: 1px solid #D4C7B8; /* Muted Beige */
+}
+
+.modal-actions::before {
+    content: 'Log Entry';
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 1.5rem; /* More professional size */
+    font-weight: 700;
+    color: #A0522D; /* Sienna */
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-actions .movie-review-textarea {
+    height: 120px; /* Increased height */
+    background-color: #F8F5F0; /* Light Cream */
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #3A332C;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-buttons .start-button {
+    font-size: 1rem; /* Smaller font size */
+    padding: 10px 20px; /* Standardized padding */
+}
+
+/* === Profile Page === */
+.profile-content {
+    padding: 3rem 5%;
+    max-width: 900px; /* Keep max-width */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    margin: 0 auto;
+}
+
+.watchlist {
+    list-style: none;
+    padding: 0;
+}
+
+.watchlist li {
+    background-color: #F8F5F0; /* Light Cream */
+    border-left: 4px solid #C28B6E; /* Muted Terracotta */
+    padding: 20px; /* Keep padding */
+    margin-bottom: 1rem; /* Keep margin */
+    font-size: 1.5rem; /* Keep font size */
+    font-family: 'Inter', sans-serif; /* Keep font */
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 0 8px 8px 0;
+}
+
+/* === Profile Page Stats === */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem; /* Slightly less margin */
+    border: 1px solid #D4C7B8; /* Muted Beige */
+    padding: 20px; /* Padding for stats container */
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lora', serif; /* Elegant serif */
+    font-size: 3.5rem; /* More professional size */
+    color: #A0522D; /* Sienna */
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: #3A332C; /* Deep Brown */
+}
+
+/* === Sticker Decorations === */
+.sticker-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.sticker-container img {
+    position: absolute;
+    opacity: 0.15; /* Much more subtle */
+    user-select: none; /* Prevents them from being dragged */
+    filter: grayscale(100%) opacity(0.5); /* Desaturate and make them blend */
+}
+
+#sticker-coffee {
+    width: 150px;
+    bottom: 10%;
+    right: 15%;
+    transform: rotate(15deg);
+} 
+#sticker-swirl {
+    width: 200px;
+    top: 15%;
+    left: 18%;
+    transform: rotate(-25deg);
+}
+
+#sticker-leaf {
+    width: 120px;
+    top: 12%;
+    right: 22%;
+    transform: rotate(20deg);
+    opacity: 0.5;
+}
+
+#sticker-book {
+    width: 130px;
+    bottom: 15%;
+    left: 20%;
+    transform: rotate(-15deg);
+}
+
+/* === Footer === */
+.footer {
+    background-color: #6D4C41; /* Darker Brown */
+    color: #EAE3D9; /* Soft Tan */
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #5A4038;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
+}
+
+.footer p {
+    margin: 0;
+    letter-spacing: 0.1px;
+}
+
+.footer a {
+    color: #F8F5F0; /* Light Cream */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer a:hover {
+    color: #C28B6E; /* Muted Terracotta */
+}
+
+/* === Help Page Layout === */
+.help-content-layout {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.help-text {
+    flex: 1; /* Take up half the space */
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.help-image-container {
+    flex: 1; /* Take up the other half */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aesthetic-scene-photo {
+    width: 180%; /* Allow it to take up more of its container */
+    max-width: 550px; /* Increased max-width for a larger display */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    filter: sepia(20%) contrast(95%);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .help-content-layout {
+        flex-direction: column;
+    }
+}

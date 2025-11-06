@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - FilmFolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sticker-container">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzZCNjQ0RiI+PHBhdGggZD0iTTEyIDEuNzVjLTMuMzM5IDAtNi4wNDIgMi43MDMtNi4wNDIgNi4wNDJzMi43MDMgNi4wNDIgNi4wNDIgNi4wNDIgNi4wNDItMi43MDMgNi4wNDItNi4wNDItMi43MDMtNi4wNDItNi4wNDItNi4wNDJ6bTAgMS44NzVjMi4yOTcgMCA0LjE2NyAxLjg3IDQuMTY3IDQuMTY3czEtLjg3IDQuMTY3LTQuMTY3IDQuMTY3LTQuMTY3LTEuODctNC4xNjctNC4xNjdjMC0uMDk2LjAxMy0uMTg4LjAyNS0uMjg0bC0yLjYxNy0xLjM3NWMtLjM5Ni0uMjA4LS41NTgtLjY5Ni0uMzUtMS4wOTEuMjA4LS4zOTYuNjk2LS41NTggMS4wOTEtLjM1bDIuNjYyIDEuMzk5Yy4zODEtLjQ1LjU0Ni0xLjM5IDIuNjE2LTIuNDU4LS45NDEtMC41MjEtMS41MzQtMS41MTYtMS41MzQtMi42NDJoMS44NzV6bS0wLjkzOCA4LjIwOGMwIC41MjEuNDE3LjkzOC45MzguOTM4di0xLjg3NWMtLjUyMSAwLS45MzguNDE3LS45MzguOTM4em0tNC4zNTQgNC40NDhsNC4xMDQtMS4zMDhjLjE1LS4wNDcuMjk4LS4wNy40NDQtLjA3czIuMjgxLjU1MiAyLjg5NiAxLjE3N2MuMTE1LSuMjkyLjE3Ny0uNjA0LjE3Ny0uOTI4di0uMzN2MC0uNTIxLS40MTctLjkzOC0uOTM4LS45MzhoLTEuODc1Yy0uNTIxIDAtLjYzOC40MTctLjkzOC45Mzh2MS44NzVjMCAuNTIxLjQxNy45MzguOTM4LjkzOGgxLjI1OWwtMy4wNzMgMS4wMDhjLS4zOTYuMTMtLjgxMy0uMDYyLTEuMDQyLS40NDRsLTEuNjg4LTEuNjg4Yy0uMjgxLS4yODEgMCAuMzc1IDAgLjM3NXoiLz48L3N2Zz4=" id="sticker-coffee">
+    </div>
+    <div class="container signin-container">
+        <div class="signin-box">
+            <h2 class="cursive-heading">State your name.</h2>
+            <form id="signin-form">
+                <input type="text" id="username" class="username-input" placeholder="Enter your name..." required>
+                <button type="submit" class="start-button">Continue &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // When the form is submitted...
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            // Prevent the form from actually submitting
+            event.preventDefault(); 
+
+            // Get the username from the input field
+            const username = document.getElementById('username').value;
+
+            // Clear the previous user's watched and to-watch lists
+            localStorage.removeItem('filmFolioWatchedList');
+            localStorage.removeItem('filmFolioWatchList');
+
+            // Store the username in the browser's local storage to use on the next page
+            localStorage.setItem('filmFolioUsername', username);
+
+            // Redirect the user to the home page
+            window.location.href = 'home.html';
+        });
+    </script>
+
+    <footer class="footer">
+        <p>&copy; 2023 FilmFolio. All rights reserved. Designed with <a href="#">passion</a>.</p>
+    </footer>
+</body>
+</html>

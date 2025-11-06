@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List - FilmFolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">FilmFolio</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="watched.html">Watched</a></li>
+            <li><a href="my-list.html" class="active">To Watch</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <main class="home-content">
+        <h1 class="cursive-heading">My List</h1>
+        <p class="subheading">A collection of films waiting to be discovered.</p>
+
+        <div id="my-list-grid" class="movie-grid">
+            <!-- Movies from localStorage will be added here -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allMovies = JSON.parse(localStorage.getItem('filmFolioAllMovies')) || [];
+            const watchListTitles = JSON.parse(localStorage.getItem('filmFolioWatchList')) || [];
+            const grid = document.getElementById('my-list-grid');
+
+            const moviesToShow = allMovies.filter(movie => watchListTitles.includes(movie.title));
+
+            if (moviesToShow.length === 0) {
+                grid.innerHTML = '<p class="subheading" style="grid-column: 1 / -1;">Your list is empty. Go explore in The Lobby!</p>';
+            } else {
+                moviesToShow.forEach(movie => {
+                    const movieCard = `
+                        <div class="movie-card">
+                            <img src="${movie.img}" alt="${movie.title}">
+                            <div class="movie-overlay">
+                                <h3>${movie.title}</h3>
+                            </div>
+                        </div>`;
+                    grid.innerHTML += movieCard;
+                });
+            }
+        });
+    </script>
+
+    <footer class="footer">
+        <p>&copy; 2023 FilmFolio. All rights reserved. Designed with <a href="#">passion</a>.</p>
+    </footer>
+</body>
+</html>

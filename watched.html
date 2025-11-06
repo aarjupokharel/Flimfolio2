@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watched - FilmFolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">FilmFolio</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="watched.html" class="active">Watched</a></li>
+            <li><a href="my-list.html">To Watch</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <main class="home-content">
+        <h1 class="cursive-heading">Watched Films</h1>
+        <p id="watched-counter" class="subheading">You've watched 0 films.</p>
+
+        <div id="watched-grid" class="movie-grid">
+            <!-- Watched movies will be added here -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allMovies = JSON.parse(localStorage.getItem('filmFolioAllMovies')) || [];
+            const watchedTitles = JSON.parse(localStorage.getItem('filmFolioWatchedList')) || [];
+            const grid = document.getElementById('watched-grid');
+
+            // Update counter
+            document.getElementById('watched-counter').textContent = `You've watched ${watchedTitles.length} films.`;
+
+            const moviesToShow = allMovies.filter(movie => watchedTitles.some(watchedMovie => watchedMovie.title === movie.title));
+
+            if (moviesToShow.length === 0) {
+                grid.innerHTML = '<p class="subheading" style="grid-column: 1 / -1;">No films watched yet. Get to it!</p>';
+            } else {
+                moviesToShow.forEach(movie => {
+                    const watchedMovieData = watchedTitles.find(item => item.title === movie.title);
+                    const rating = watchedMovieData ? watchedMovieData.rating : 0;
+                    const review = watchedMovieData ? watchedMovieData.review : '';
+
+                    const movieCard = `
+                        <div class="movie-card">
+                            <img src="${movie.img}" alt="${movie.title}">
+                            <div class="movie-overlay">
+                                <h3>${movie.title}</h3>
+                                <div class="review-details">
+                                    <div class="star-rating">${'&#9733;'.repeat(rating)}${'&#9734;'.repeat(5 - rating)}</div>
+                                    <p class="review-text">${review}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    grid.innerHTML += movieCard;
+                });
+            }
+        });
+    </script>
+
+    <footer class="footer">
+        <p>&copy; 2023 FilmFolio. All rights reserved. Designed with <a href="#">passion</a>.</p>
+    </footer>
+</body>
+</html>
